@@ -78,7 +78,7 @@ const LinkPage = () => {
           <a
             href={`https://squeezeurl.netlify.app/${link}`}
             target="_blank"
-            className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
+            className="text-2xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
             https://squeezeurl.netlify.app/{link}
           </a>
@@ -128,7 +128,7 @@ const LinkPage = () => {
           />
         </div>
 
-        <Card className="sm:w-3/5">
+        <Card className="sm:w-2/5">
           <CardHeader>
             <CardTitle className="text-4xl font-extrabold">Stats</CardTitle>
           </CardHeader>

@@ -21,7 +21,7 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col items-center">
       <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
-        The only URL Shortener <br /> you&rsquo;ll ever need! 👇
+        The Ultimate URL shortener<br /> simple, fast, and reliable! 🔗
       </h2>
       <form
         onSubmit={handleShorten}
@@ -31,6 +31,7 @@ const LandingPage = () => {
           type="url"
           placeholder="Enter your loooong URL"
           value={longUrl}
+          autoFocus
           onChange={(e) => setLongUrl(e.target.value)}
           className="h-full flex-1 py-4 px-4"
         />
@@ -39,36 +40,57 @@ const LandingPage = () => {
         </Button>
       </form>
       <img
-        src="/banner1.jpg" // replace with 2 in small screens
-        className="w-full my-11 md:px-11"
+        src="/banner3.png" // replace with 2 in small screens
+        className="w-full my-12 md:px-11"
       />
-      <Accordion type="multiple" collapsible className="w-full md:px-11">
+      <h1 className="text-4xl font-semibold">FAQ's</h1>
+      <Accordion type="multiple" collapsible className="w-full md:px-11 mt-5 border-2 border-white/60 rounded-3xl">
         <AccordionItem value="item-1">
-          <AccordionTrigger>
-            How does the Trimrr URL shortener works?
+          <AccordionTrigger className = "hover:no-underline">
+          🔗 What is SqueezeURL?
           </AccordionTrigger>
           <AccordionContent>
-            When you enter a long URL, our system generates a shorter version of
-            that URL. This shortened URL redirects to the original long URL when
-            accessed.
+            SqueezeURL is a fast and reliable URL shortener that helps you create concise and shareable links with ease.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
-          <AccordionTrigger>
-            Do I need an account to use the app?
+          <AccordionTrigger className = "hover:no-underline">
+          🔗 How does SqueezeURL work?
           </AccordionTrigger>
           <AccordionContent>
-            Yes. Creating an account allows you to manage your URLs, view
-            analytics, and customize your short URLs.
+            Simply paste your long URL into our platform, click the shorten button, and get a compact link that’s easy to share.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
-          <AccordionTrigger>
-            What analytics are available for my shortened URLs?
+          <AccordionTrigger className = "hover:no-underline">
+          🔗  Is SqueezeURL free to use?
           </AccordionTrigger>
           <AccordionContent>
-            You can view the number of clicks, geolocation data of the clicks
-            and device types (mobile/desktop) for each of your shortened URLs.
+            Yes! Our basic URL shortening service is free. We also offer premium features for advanced analytics and custom branding.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-4">
+          <AccordionTrigger className = "hover:no-underline">
+          🔗 Can I customize my shortened URL?
+          </AccordionTrigger>
+          <AccordionContent>
+            Yes! With our premium plan, you can create custom short links that match your brand or campaign.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-5">
+          <AccordionTrigger className = "hover:no-underline">
+          🔗 Do SqueezeURL links expire?
+          </AccordionTrigger>
+          <AccordionContent>
+            By default, links do not expire. However, you can set expiration dates for links if needed.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-6">
+          <AccordionTrigger className = "hover:no-underline">
+          🔗 Does SqueezeURL provide link analytics?
+          </AccordionTrigger>
+          <AccordionContent>
+            Absolutely! You can track clicks, locations, devices, and referral sources through our analytics dashboard.
           </AccordionContent>
         </AccordionItem>
       </Accordion>
