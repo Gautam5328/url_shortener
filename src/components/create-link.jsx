@@ -127,14 +127,15 @@ export function CreateLink() {
           value={formValues.longUrl}
           onChange={handleChange}
         />
-        <div className="flex items-center space-x-2">
+        {/* Commenting code as of now  */}
+        {/* <div className="flex items-center space-x-2">
           <Switch
             onCheckedChange = {handleSwitchChange}
             id="one-time-expiry"
             className="data-[state=checked]:bg-white data-[state=unchecked]:bg-gray-500"
           />
           <Label htmlFor="one-time-expiry"> Set One Time Expiry</Label>
-        </div>
+        </div> */}
         {errors.longUrl && <Error message={errors.longUrl} />}
         <div className="flex items-center gap-2">
           <Card className="p-2">squeezeurl.netlify.app</Card> /
