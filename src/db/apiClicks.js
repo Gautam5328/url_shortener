@@ -59,7 +59,7 @@ export const storeClicks = async ({id, originalUrl}) => {
     });
 
     // Redirect to the original URL
-    window.location.href = originalUrl;
+    // window.location.href = originalUrl;
   } catch (error) {
     console.error("Error recording click:", error);
   }

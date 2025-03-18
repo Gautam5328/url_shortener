@@ -82,7 +82,7 @@ const Login = () => {
         </CardDescription>
         {error && <Error message={error.message} />}
       </CardHeader>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-4">
         <div className="space-y-1">
           <Input
             name="email"
@@ -102,7 +102,7 @@ const Login = () => {
         </div>
         {errors.password && <Error message={errors.password} />}
       </CardContent>
-      <CardFooter>
+      <CardFooter className="mt-10 items-center justify-center">
         <Button onClick={handleLogin}>
           {loading ? <BeatLoader size={10} color="#36d7b7" /> : "Login"}
         </Button>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://squeezeurl.netlify.app/sitemap.xml

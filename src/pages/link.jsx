@@ -78,17 +78,17 @@ const LinkPage = () => {
           <a
             href={`https://squeezeurl.netlify.app/${link}`}
             target="_blank"
-            className="text-2xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
+            className="md:text-2xl sm:text-3xl xs:text-5xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
             https://squeezeurl.netlify.app/{link}
           </a>
           <a
             href={url?.original_url}
             target="_blank"
-            className="flex items-center gap-1 hover:underline cursor-pointer"
+            className="flex items-center gap-1 hover:underline cursor-pointer xs:max-w-[250px]"
           >
             <LinkIcon className="p-1" />
-            {url?.original_url}
+            <span className="break-words">{url?.original_url}</span>
           </a>
           <span className="flex items-end font-extralight text-sm">
             {new Date(url?.created_at).toLocaleString()}

@@ -86,7 +86,7 @@ const Signup = () => {
         </CardDescription>
         {error && <Error message={error?.message} />}
       </CardHeader>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-4">
         <div className="space-y-1">
           <Input
             name="name"
@@ -114,17 +114,20 @@ const Signup = () => {
           />
         </div>
         {errors.password && <Error message={errors.password} />}
-        <div className="space-y-1">
-          <input
-            name="profile_pic"
-            type="file"
-            accept="image/*"
-            onChange={handleInputChange}
-          />
+        <div className="flex-col flex space-y-2">
+          <p className="text-[14px]">Select Profile Pic</p>
+          <div className="space-y-1">
+            <input
+              name="profile_pic"
+              type="file"
+              accept="image/*"
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
         {errors.profile_pic && <Error message={errors.profile_pic} />}
       </CardContent>
-      <CardFooter>
+      <CardFooter className="mt-10 items-center justify-center">
         <Button onClick={handleSignup}>
           {loading ? (
             <BeatLoader size={10} color="#36d7b7" />

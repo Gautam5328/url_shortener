@@ -1,15 +1,15 @@
-import "./App.css";
-import {RouterProvider, createBrowserRouter} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import UrlProvider from "./context";
-
 import AppLayout from "./layouts/app-layout";
 import RequireAuth from "./components/require-auth";
-
 import RedirectLink from "./pages/redirect-link";
 import LandingPage from "./pages/landing";
 import Dashboard from "./pages/dashboard";
 import LinkPage from "./pages/link";
 import Auth from "./pages/auth";
+import { Helmet } from "react-helmet";
+import AboutUs from "./pages/aboutUs";
+import ContactUsPage from "./pages/contactUs";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +43,14 @@ const router = createBrowserRouter([
         path: "/:id",
         element: <RedirectLink />,
       },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUsPage/>
+      }
     ],
   },
 ]);
@@ -50,7 +58,19 @@ const router = createBrowserRouter([
 function App() {
   return (
     <UrlProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+        <Helmet>
+          <title>SqueezeURL</title>
+          <meta
+            name="description"
+            content="The Ultimate URL shortener simple, fast, and reliable!"
+          />
+          <meta
+            name="keywords"
+            content="URL, shortener, squeezeurl,squeeze,tinyurl"
+          />
+        </Helmet>
+      </RouterProvider>
     </UrlProvider>
   );
 }
