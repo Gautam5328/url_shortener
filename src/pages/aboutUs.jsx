@@ -15,7 +15,7 @@ const AboutUs = () => {
           </h1>
 
           {/* Description */}
-          <p className="text-white mt-[60px] text-lg">
+          <p className="text-white mt-[60px] text-[18px]">
             SqueezeURL is a powerful and efficient URL shortening service that
             helps you transform long, complex links into short, easy-to-share
             URLs. Whether you need to share links on social media, track click

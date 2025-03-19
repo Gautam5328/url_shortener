@@ -23,7 +23,7 @@ function Auth() {
           ? "Hold up! Let's login first.."
           : "Login / Signup"}
       </h1>
-      <Tabs defaultValue="login" className="w-[400px]">
+      <Tabs defaultValue="login" className="md:w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="login">Login</TabsTrigger>
           <TabsTrigger value="signup">Signup</TabsTrigger>

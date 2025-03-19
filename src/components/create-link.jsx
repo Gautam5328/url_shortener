@@ -20,6 +20,12 @@ import { UrlState } from "@/context";
 import { QRCode } from "react-qrcode-logo";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function CreateLink() {
   const { user } = UrlState();
@@ -35,7 +41,7 @@ export function CreateLink() {
     title: "",
     longUrl: longLink ? longLink : "",
     customUrl: "",
-    oneTimeExpiry: false
+    oneTimeExpiry: false,
   });
 
   const schema = yup.object().shape({
@@ -70,7 +76,7 @@ export function CreateLink() {
 
   const createNewLink = async () => {
     setErrors([]);
-    console.log('formValues',formValues)
+    console.log("formValues", formValues);
     try {
       await schema.validate(formValues, { abortEarly: false });
 
@@ -94,7 +100,7 @@ export function CreateLink() {
       ...formValues,
       ["oneTimeExpiry"]: e,
     });
-  }
+  };
 
   return (
     <Dialog
@@ -139,12 +145,25 @@ export function CreateLink() {
         {errors.longUrl && <Error message={errors.longUrl} />}
         <div className="flex items-center gap-2">
           <Card className="p-2">squeezeurl.netlify.app</Card> /
-          <Input
-            id="customUrl"
-            placeholder="Custom Link (optional)"
-            value={formValues.customUrl}
-            onChange={handleChange}
-          />
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="w-full">
+                  <Input
+                    id="customUrl"
+                    disabled
+                    placeholder="Custom Link (optional)"
+                    value={formValues.customUrl}
+                    onChange={handleChange}
+                    className="cursor-not-allowed"
+                  />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>💎 Available in Premium plan</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
         {error && <Error message={errors.message} />}
         <DialogFooter className="sm:justify-start">

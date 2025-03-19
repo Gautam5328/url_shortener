@@ -11,7 +11,7 @@ const FaqsComponent = () => {
     <Accordion
     type="multiple"
     collapsible
-    className="w-full sm:px-11 md:px-11 mt-5 border-2 border-white/60 rounded-3xl"
+    className="w-full px-4 sm:px-11 md:px-11 mt-5 border-2 border-white/60 rounded-3xl"
   >
     <AccordionItem value="item-1">
       <AccordionTrigger className="hover:no-underline">

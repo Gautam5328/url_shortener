@@ -48,7 +48,7 @@ const Header = () => {
     });
     if (result?.user?.email) {
       setOpenEditModal(false);
-      window.location.reload()
+      window.location.reload();
     } else {
       toast.error("Something went wrong!!", {
         position: "top-right",
@@ -85,8 +85,11 @@ const Header = () => {
             <Button onClick={() => navigate("/auth")}>Login</Button>
           ) : (
             <DropdownMenu>
-              <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden" asChild>
-                <Avatar>
+              <DropdownMenuTrigger
+                asChild
+                className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200"
+              >
+                <Avatar className="pl-3 pt-1">
                   <AvatarImage src={user?.user_metadata?.profile_pic} />
                   <AvatarFallback>S</AvatarFallback>
                 </Avatar>

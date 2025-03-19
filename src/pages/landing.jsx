@@ -33,7 +33,7 @@ const LandingPage = () => {
           value={longUrl}
           autoFocus
           onChange={(e) => setLongUrl(e.target.value)}
-          className="h-full flex-1 py-4 px-4"
+          className="h-full flex-1 py-4 px-4 placeholder:text-lg placeholder: font-semibold"
         />
         <Button type="submit" className="h-full" variant="destructive">
           Shorten!
