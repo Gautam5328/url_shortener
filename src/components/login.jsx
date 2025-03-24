@@ -1,4 +1,4 @@
-import {Input} from "./ui/input";
+import { Input } from "./ui/input";
 import {
   Card,
   CardContent,
@@ -7,15 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import {Button} from "./ui/button";
-import {useNavigate, useSearchParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import { Button } from "./ui/button";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import Error from "./error";
-import {login} from "@/db/apiAuth";
-import {BeatLoader} from "react-spinners";
+import { login } from "@/db/apiAuth";
+import { BeatLoader } from "react-spinners";
 import useFetch from "@/hooks/use-fetch";
-import {UrlState} from "@/context";
+import { UrlState } from "@/context";
 
 const Login = () => {
   let [searchParams] = useSearchParams();
@@ -30,15 +30,15 @@ const Login = () => {
   });
 
   const handleInputChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const {loading, error, fn: fnLogin, data} = useFetch(login, formData);
-  const {fetchUser} = UrlState();
+  const { loading, error, fn: fnLogin, data } = useFetch(login, formData);
+  const { fetchUser } = UrlState();
 
   useEffect(() => {
     if (error === null && data) {
@@ -60,7 +60,7 @@ const Login = () => {
           .required("Password is required"),
       });
 
-      await schema.validate(formData, {abortEarly: false});
+      await schema.validate(formData, { abortEarly: false });
       await fnLogin();
     } catch (e) {
       const newErrors = {};
@@ -80,7 +80,16 @@ const Login = () => {
         <CardDescription>
           to your account if you already have one
         </CardDescription>
-        {error && <Error message={error.message} />}
+        {error && (
+          <Error
+            message={
+              error.message == "Email not confirmed"
+                ? error?.message +
+                  " Please check your inbox and confirm your email account"
+                : error?.message
+            }
+          />
+        )}
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-1">
