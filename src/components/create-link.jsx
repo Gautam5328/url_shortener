@@ -18,8 +18,6 @@ import { createUrl } from "@/db/apiUrls";
 import { BeatLoader } from "react-spinners";
 import { UrlState } from "@/context";
 import { QRCode } from "react-qrcode-logo";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import {
   Tooltip,
   TooltipContent,

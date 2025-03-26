@@ -45,10 +45,11 @@ const parser = new UAParser();
 export const storeClicks = async ({id, originalUrl}) => {
   try {
     const res = parser.getResult();
-    const device = res.type || "desktop"; // Default to desktop if type is not detected
+    const device = res?.device?.type || "desktop"; // Default to desktop if type is not detected
 
     const response = await fetch("https://ipapi.co/json");
-    const {city, country_name: country} = await response.json();
+    const {city, country_name: country, ip: ip_address} = await response.json();
+    
 
     // Record the click
     await supabase.from("clicks").insert({
@@ -56,6 +57,7 @@ export const storeClicks = async ({id, originalUrl}) => {
       city: city,
       country: country,
       device: device,
+      ip_address
     });
 
     // Redirect to the original URL

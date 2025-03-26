@@ -37,8 +37,6 @@ const LinkCard = ({ url = [], fetchUrls }) => {
   const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrl, url.id);
 
   const handleCopy = async () => {
-    if (!url?.short_url || !url?.custom_url) return;
-
     try {
       await navigator.clipboard.writeText(
         `https://squeezeurl.netlify.app/${
@@ -79,7 +77,7 @@ const LinkCard = ({ url = [], fetchUrls }) => {
           {url?.title}
         </span>
         <span className="md:text-2xl sm:text-xl text-blue-400 font-bold hover:underline cursor-pointer xs:max-w-[280px] break-words">
-          https://squeezeurl.netlify.app/
+          squeezeurl.netlify.app/
           {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
         <span className="flex items-center gap-1 hover:underline cursor-pointer">

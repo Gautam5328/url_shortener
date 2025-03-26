@@ -8,19 +8,17 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Left Section - Logo */}
-          <div className="text-center md:text-left">
-            <Link to="/">
-              <img
-                src="/squeezeurl_logo.png"
-                className="h-40 w-40"
-                alt="SqueezeURL"
-              />
-            </Link>
-
-            <p className="text-sm text-gray-400">
-              Shorten your URLs with ease!
-            </p>
-          </div>
+          <div className="flex flex-col md:justify-center xs:justify-left md:items-center xs:items-start md:p-5">
+          <Link to="/">
+            <img
+              src="/squeezeurl_logo.png"
+              width="130px"
+              height="130px"
+              alt="Trimrr Logo"
+            />
+          </Link>
+          <p className="text-xs text-gray-400 mt-[-10px]">Shorten your URLs with ease!</p>
+        </div>
 
           {/* Middle Section - Navigation Links */}
           <nav className="mt-4 md:mt-0">

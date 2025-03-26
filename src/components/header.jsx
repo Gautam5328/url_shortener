@@ -73,13 +73,17 @@ const Header = () => {
   return (
     <>
       <nav className="py-2 flex justify-between items-center lg:mx-[-40px] lg:mt-[-10px]">
-        <Link to="/">
-          <img
-            src="/squeezeurl_logo.png"
-            className="h-40 w-40"
-            alt="Trimrr Logo"
-          />
-        </Link>
+        <div className="flex flex-col md:justify-center xs:justify-left md:items-center xs:items-start md:p-5">
+          <Link to="/">
+            <img
+              src="/squeezeurl_logo.png"
+              width="130px"
+              height="130px"
+              alt="Trimrr Logo"
+            />
+          </Link>
+          <p className="text-xs text-gray-400 mt-[-10px]">Shorten your URLs with ease!</p>
+        </div>
         <div className="flex gap-4">
           {!user ? (
             <Button onClick={() => navigate("/auth")}>Login</Button>

@@ -10,6 +10,7 @@ import {Copy, Download, LinkIcon, Trash} from "lucide-react";
 import {useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {BarLoader, BeatLoader} from "react-spinners";
+import { ToastContainer, toast } from "react-toastify";
 
 const LinkPage = () => {
   const downloadImage = () => {
@@ -66,6 +67,28 @@ const LinkPage = () => {
     link = url?.custom_url ? url?.custom_url : url.short_url;
   }
 
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        `https://squeezeurl.netlify.app/${
+          url?.custom_url ? url?.custom_url : url?.short_url
+        }`
+      );
+      toast.success("Link Copied!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+      });
+    } catch (error) {
+      console.error("Failed to copy:", error);
+    }
+  };
+
   return (
     <>
       {(loading || loadingStats) && (
@@ -81,7 +104,7 @@ const LinkPage = () => {
             target="_blank"
             className="md:text-2xl sm:text-3xl xs:text-5xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
-            https://squeezeurl.netlify.app/{link}
+            squeezeurl.netlify.app/{link}
           </a>
           <a
             href={url?.original_url}
@@ -97,9 +120,7 @@ const LinkPage = () => {
           <div className="flex gap-2">
             <Button
               variant="ghost"
-              onClick={() =>
-                navigator.clipboard.writeText(`https://squeezeurl.netlify.app/${link}`)
-              }
+              onClick={handleCopy}
             >
               <Copy />
             </Button>
@@ -157,6 +178,7 @@ const LinkPage = () => {
             </CardContent>
           )}
         </Card>
+        <ToastContainer />
       </div>
     </>
   );
