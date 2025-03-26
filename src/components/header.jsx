@@ -84,6 +84,7 @@ const Header = () => {
           </Link>
           <p className="text-xs text-gray-400 mt-[-10px]">Shorten your URLs with ease!</p>
         </div>
+        <div className="flex flex-col justify-center items-center gap-3">
         <div className="flex gap-4">
           {!user ? (
             <Button onClick={() => navigate("/auth")}>Login</Button>
@@ -91,7 +92,7 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger
                 asChild
-                className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200"
+                className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200"
               >
                 <Avatar className="pl-3 pt-1">
                   <AvatarImage src={user?.user_metadata?.profile_pic} />
@@ -99,9 +100,6 @@ const Header = () => {
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>
-                  {user?.user_metadata?.name}
-                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => setOpenEditModal(true)}>
                   <Link to="/dashboard" className="flex">
@@ -130,6 +128,10 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           )}
+        </div>
+        <div className="text-sm">
+          {user?.user_metadata?.name}
+        </div>
         </div>
       </nav>
       {loading && <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />}

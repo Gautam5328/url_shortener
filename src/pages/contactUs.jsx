@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { storeContactDetails } from "@/db/apiContact";
 import useFetch from "@/hooks/use-fetch";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const ContactUsPage = () => {
   const [fullName, setFullName] = useState("");
@@ -33,12 +34,16 @@ const ContactUsPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center py-12 px-4">
+    <div className="flex items-start justify-center flex-row gap-y-20 py-12 px-4">
+      <DotLottieReact
+      src="https://lottie.host/03437bcc-9acf-45c4-a1e2-e9fccd6b14c4/kxwA6r7BXx.lottie"
+      loop
+      width='2rem'
+      height='2rem'
+      autoplay
+    />
       <div className="p-8 rounded-lg shadow-lg max-w-lg w-full">
         {/* Title */}
-        <h2 className="text-3xl font-bold text-center text-white mb-10">
-          Contact Us
-        </h2>
         <div className="space-y-4">
           <div>
             <Label className="block text-white font-medium text-0.5xl">
@@ -115,6 +120,7 @@ const ContactUsPage = () => {
           </Button>
         </div>
       </div>
+      
     </div>
   );
 };

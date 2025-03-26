@@ -46,7 +46,7 @@ const Dashboard = () => {
       {(loading || loadingClicks) && (
         <BarLoader width={"100%"} color="#36d7b7" />
       )}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 mt-10">
         <Card>
           <CardHeader>
             <CardTitle>Links Created</CardTitle>
